@@ -49,7 +49,7 @@ export default class Sidebar extends React.Component <object, State> {
     return (
       <Box >
         <Box maxW="32rem">
-          <Heading mb={4} color="gray.700">React Pizza</Heading>
+          <Heading mb={4} color="gray.700">Da Foods</Heading>
         </Box>
         <InputGroup borderRadius={5} size="sm">
           <InputLeftElement
@@ -74,7 +74,7 @@ export default class Sidebar extends React.Component <object, State> {
             </Button>
           </InputRightAddon>
         </InputGroup>
-        <Accordion defaultIndex={[0]} allowMultiple pt={10}>
+        <Accordion defaultIndex={[0]} allowMultiple pt={10} >
           <AccordionItem borderColor="transparent">
             <h2>
               <AccordionButton>
@@ -86,20 +86,29 @@ export default class Sidebar extends React.Component <object, State> {
             </h2>
             <AccordionPanel pb={4}>
               <VStack align="start" pl="1rem">
-                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Pizza enak">
-                  Pizza enak
+                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Borgar" defaultChecked>
+                  Borgar
                 </Checkbox>
-                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Pizza luar biasa">
-                  Pizza luar biasa
+                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Breed">
+                  Breed
                 </Checkbox>
-                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Pizza sedap">
-                  Pizza sedap
+                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Breakfast">
+                  Breakfast
                 </Checkbox>
-                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Pizza super">
-                  Pizza super
+                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Cake">
+                  Cake
                 </Checkbox>
-                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Pizza dewa">
-                  Pizza dewa
+                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Chocolate">
+                  Chocolate
+                </Checkbox>
+                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Dessert">
+                  Dessert
+                </Checkbox>
+                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Fries">
+                  Fries
+                </Checkbox>
+                <Checkbox colorScheme="red" onChange={this.handleCheck} name="Noodles">
+                  Noodles
                 </Checkbox>
               </VStack>
             </AccordionPanel>
@@ -108,7 +117,7 @@ export default class Sidebar extends React.Component <object, State> {
             <h2>
               <AccordionButton>
                 <Box as="span" flex="1" textAlign="left">
-                  Section 2 title
+                  Tag
                 </Box>
                 <AccordionIcon />
               </AccordionButton>

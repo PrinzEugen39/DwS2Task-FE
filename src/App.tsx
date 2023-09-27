@@ -11,7 +11,7 @@ export default class App extends Component {
         <GridItem
           as="aside"
           colSpan={{ base: 9, md: 4, xl: 2 }}
-          bg="whatsapp.200"
+          bg="whatsapp.50"
           borderLeft="12px solid"
           borderColor="whatsapp.500"
           minHeight={{ lg: "100vh" }}
