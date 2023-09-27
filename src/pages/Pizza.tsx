@@ -103,6 +103,7 @@ export default function Pizza() {
             <CardBody color="gray.500">
               <Skeleton isLoaded={!isLoading}>
                 <Image
+                  ms={2}
                   fit="cover"
                   src={food.imageUrl}
                   borderRadius="md"
