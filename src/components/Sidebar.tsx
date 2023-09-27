@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import {
   Input,
   Box,
@@ -21,8 +21,8 @@ interface State {
   checkedNames: string[];
 }
 
-export default class Sidebar extends React.Component <{}, State> {
-  constructor(props: {}) {
+export default class Sidebar extends React.Component <object, State> {
+  constructor(props: object) {
     super(props);
     this.state = {
       checkedNames: [],
