@@ -1,5 +1,6 @@
 import { QuestionOutlineIcon, EditIcon } from "@chakra-ui/icons";
 import {
+  useDisclosure,
   Box,
   Heading,
   Text,
@@ -15,7 +16,9 @@ import {
   Skeleton,
   SkeletonText,
 } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import PizzaDetails from "./PizzaDetails";
 
 interface Food {
   id: number;
@@ -64,7 +67,7 @@ export default function Pizza() {
   async function getFood() {
     try {
       setIsLoading(true);
-      const res = await fetch("https://api.npoint.io/624c99ed50dcd45fb160");
+      const res = await fetch("http://localhost:9000/foods");
       const data = await res.json();
 
       console.log(data);
@@ -72,7 +75,7 @@ export default function Pizza() {
     } catch (error) {
       console.error(error);
     } finally {
-      setTimeout(() => (setIsLoading(false)), 800)
+      setTimeout(() => setIsLoading(false), 100);
     }
   }
 
@@ -80,6 +83,8 @@ export default function Pizza() {
     getFood();
   }, []);
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+ 
   return (
     <SimpleGrid spacing={5} minChildWidth="290px">
       {foods.map((food) => {
@@ -128,9 +133,21 @@ export default function Pizza() {
 
             <CardFooter my={-2}>
               <HStack>
-                <Button variant="ghost" leftIcon={<QuestionOutlineIcon />}>
-                  Details
-                </Button>
+                <NavLink to={`details/${food.id}`}>
+                  <Button
+                    variant="ghost"
+                    leftIcon={<QuestionOutlineIcon />}
+                    onClick={() => {
+                      onOpen();
+                    }}
+                  >
+                    Details
+                    <PizzaDetails
+                      isOpen={isOpen}
+                      onClose={onClose}
+                    />
+                  </Button>
+                </NavLink>
                 <Button variant="ghost" leftIcon={<EditIcon />}>
                   Edit
                 </Button>

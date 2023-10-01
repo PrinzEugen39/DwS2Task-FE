@@ -1,0 +1,76 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "name": "American Heritage Chocolate",
+      "badge": "NEW",
+      "imageUrl": "https://micro-frontend-one.vercel.app/american-heritage-chocolate-vdx5hPQhXFk-unsplash.jpg",
+      "categories": ["Cake", "Chocolate"],
+      "description": "Kue dengan citarasa ala Amerika, dibalut dengan coklat yang lumer dan kaya, dan dibuat dengan bahan - bahan pilihan."
+    },
+    {
+      "id": 2,
+      "name": "White Bread",
+      "badge": "NEW",
+      "imageUrl": "https://micro-frontend-one.vercel.app/charles-chen-w2ZFjDnUL3w-unsplash.jpg",
+      "categories": ["Breads"],
+      "description": "Roti tawar yang gak bisa di tawar harganya tapi bisa ditaburi dengan meses ataupun selai agar rasanya semakin gurih dan manis, cocok untuk sarapan pagi."
+    },
+    {
+      "id": 3,
+      "name": "Chocolate Cake",
+      "badge": "NEW",
+      "imageUrl": "https://micro-frontend-one.vercel.app/chocolate-cake-with-chocolate-sprinkles.jpg",
+      "categories": ["Cake", "Chocolate"],
+      "description": "Kue coklat dengan rasa manis dan gurih, dibalut pula dengan saus coklat yang nikmat, memanjakan lidah kamu."
+    },
+    {
+      "id": 4,
+      "name": "Croissants",
+      "badge": "NEW",
+      "imageUrl": "https://micro-frontend-one.vercel.app/conor-brown-sqkXyyj4WdE-unsplash.jpg",
+      "categories": ["Bread", "Favorite"],
+      "description": "Kue dengan rasa yang renyah dan gurih, pilihan yang menarik dipadukan dengan kopi ataupun teh, rasa yang dapat memanjakan lidah."
+    },
+    {
+      "id": 5,
+      "name": "Strawberry Shortcake",
+      "badge": "NEW",
+      "imageUrl": "https://micro-frontend-one.vercel.app/cute-mini-strawberry-shortcake-pink.jpg",
+      "categories": ["Bread", "New"],
+      "description": "Kue manis dengan baluran saus stroberi yang manis, membuat rasanya menggugah selera, kue yang layak dijadikan buah tangan."
+    },
+    {
+      "id": 6,
+      "name": "Mie Goreng Pedas",
+      "badge": "NEW",
+      "imageUrl": "https://micro-frontend-one.vercel.app/ikhsan-baihaqi-RwAXb8Hv_sU-unsplash.jpg",
+      "categories": ["Bread", "Favorite"],
+      "description": "Makanan yang bisa kamu jadikan cemilan ataupun penghilang rasa lapar, cocok untuk kamu yang malas memasak dan ingin yang instan."
+    },
+    {
+      "id": 7,
+      "name": "Chocolate Cake",
+      "badge": "NEW",
+      "imageUrl": "https://micro-frontend-one.vercel.app/chocolate-cake-with-chocolate-sprinkles.jpg",
+      "categories": ["Cake", "Chocolate"],
+      "description": "Kue coklat dengan rasa manis dan gurih, dibalut pula dengan saus coklat yang nikmat, memanjakan lidah kamu."
+    },
+    {
+      "id": 8,
+      "name": "Chocolate Cake",
+      "badge": "NEW",
+      "imageUrl": "https://micro-frontend-one.vercel.app/ball-park-brand-RKQ4-Q5FF-o-unsplash.jpg",
+      "categories": ["Cake", "Chocolate"],
+      "description": "Kue coklat dengan rasa manis dan gurih, dibalut pula dengan saus coklat yang nikmat, memanjakan lidah kamu."
+    },
+    {
+      "id": 9,
+      "name": "Chocolate Cake",
+      "badge": "NEW",
+      "imageUrl": "https://micro-frontend-one.vercel.app/chocolate-cake-with-chocolate-sprinkles.jpg",
+      "categories": ["Cake", "Chocolate"],
+      "description": "Kue coklat dengan rasa manis dan gurih, dibalut pula dengan saus coklat yang nikmat, memanjakan lidah kamu."
+    }
+  ]
+}
