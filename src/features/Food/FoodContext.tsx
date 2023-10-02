@@ -1,4 +1,4 @@
-import { createContext, useState, useCallback  } from "react";
+import { createContext, useState, useCallback, useEffect } from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import axios from "axios";
 
@@ -22,6 +22,7 @@ interface Food {
   name: string;
   imageUrl: string;
   description: string;
+  categories: string[];
 }
 
 interface selectedFood {
@@ -59,6 +60,10 @@ function FoodsProvider({ children }: FoodsProviderProps) {
         setTimeout(() => setIsLoading(false), 200);
       });
   }, [])
+
+  useEffect(() => {
+    getFood();
+  }, [getFood]);
 
   return (
     <FoodContext.Provider

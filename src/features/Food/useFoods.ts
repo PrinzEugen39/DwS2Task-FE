@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FoodContext } from "./PIzzaContext";
+import { FoodContext } from "./FoodContext";
 
 export function useFoods() {
   const context = useContext(FoodContext);

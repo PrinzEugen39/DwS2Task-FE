@@ -15,10 +15,11 @@ import {
   Skeleton,
   SkeletonText,
 } from "@chakra-ui/react";
+
 import { NavLink } from "react-router-dom";
-import { useEffect } from "react";
+
 import { useFoods } from "../../features/Food/useFoods";
-import PizzaDetails from "./PizzaDetails";
+import PizzaDetails from "./2-FoodsDetails";
 
 // const foods: Food[] = [
 //   {
@@ -55,7 +56,6 @@ import PizzaDetails from "./PizzaDetails";
 
 export default function Pizza() {
   const {
-    getFood,
     foods,
     isLoading,
     handleOpen,
@@ -64,10 +64,6 @@ export default function Pizza() {
     isOpen,
     onClose,
   } = useFoods();
-
-  useEffect(() => {
-    getFood();
-  }, [getFood]);
 
   return (
     <SimpleGrid spacing={5} minChildWidth="290px">
