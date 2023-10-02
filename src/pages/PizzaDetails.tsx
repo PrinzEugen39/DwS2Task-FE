@@ -15,15 +15,17 @@ import { useState, useEffect } from "react";
 interface PizzaDetailsProps {
   isOpen: boolean;
   onClose: () => void;
+  foodmodal: object;
 }
 
 interface Food {
     name: string;
+    badge: string;
     description: string;
     // include other properties as needed
   }
 
-export default function PizzaDetails({ isOpen, onClose }: PizzaDetailsProps) {
+export default function PizzaDetails({ isOpen, onClose, foodmodal }: PizzaDetailsProps) {
   const [food, setFood] = useState< Food | undefined >();
   const { id } = useParams();
 
@@ -31,6 +33,7 @@ export default function PizzaDetails({ isOpen, onClose }: PizzaDetailsProps) {
     try {
       const res = await fetch(`http://localhost:9000/foods/${id}`);
       const data = await res.json();
+      
       setFood(data);
     } catch (error) {
       console.log(error);
@@ -62,6 +65,7 @@ export default function PizzaDetails({ isOpen, onClose }: PizzaDetailsProps) {
           <ModalHeader>{food ? food.name : 'Loading...'}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+            <Text>Arrival: {food ? food.badge : ""}</Text>
             <Text>{food ? food.description : 'Loading...'}</Text>
           </ModalBody>
           <ModalFooter>

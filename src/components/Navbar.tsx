@@ -8,7 +8,10 @@ import {
   HStack,
   Avatar,
 } from "@chakra-ui/react";
+
 import React from "react";
+
+import { Link } from "react-router-dom";
 
 export default class Navbar extends React.Component {
   render() {
@@ -19,10 +22,16 @@ export default class Navbar extends React.Component {
           <Spacer />
           <HStack spacing="20px">
             <Box>
-              <Avatar name="Christian Nwamba" size="sm" src="https://bit.ly/code-beast" />
+              <Avatar
+                name="Christian Nwamba"
+                size="sm"
+                src="https://bit.ly/code-beast"
+              />
             </Box>
             <Text>bingchilling@gmail.com</Text>
-            <Button colorScheme="messenger">Logout</Button>
+            <Link to="/">
+              <Button colorScheme="messenger">Logout</Button>
+            </Link>
           </HStack>
         </Flex>
       </div>

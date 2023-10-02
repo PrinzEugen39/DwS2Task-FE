@@ -63,6 +63,12 @@ interface Food {
 export default function Pizza() {
   const [foods, setFoods] = useState<Food[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedFood, setSelectedFood] = useState<Food | null>(null);
+
+  const handleOpen = (food: Food) => {
+    setSelectedFood(food);
+    onOpen();
+  };
 
   async function getFood() {
     try {
@@ -70,12 +76,11 @@ export default function Pizza() {
       const res = await fetch("http://localhost:9000/foods");
       const data = await res.json();
 
-      console.log(data);
       setFoods(data);
     } catch (error) {
       console.error(error);
     } finally {
-      setTimeout(() => setIsLoading(false), 100);
+      setTimeout(() => setIsLoading(false), 500);
     }
   }
 
@@ -138,14 +143,10 @@ export default function Pizza() {
                     variant="ghost"
                     leftIcon={<QuestionOutlineIcon />}
                     onClick={() => {
-                      onOpen();
+                      handleOpen(food);
                     }}
                   >
                     Details
-                    <PizzaDetails
-                      isOpen={isOpen}
-                      onClose={onClose}
-                    />
                   </Button>
                 </NavLink>
                 <Button variant="ghost" leftIcon={<EditIcon />}>
@@ -156,6 +157,16 @@ export default function Pizza() {
           </Card>
         );
       })}
+       {selectedFood && (
+        <PizzaDetails
+          isOpen={isOpen}
+          onClose={() => {
+            onClose();
+            setSelectedFood(null);
+          }}
+          foodmodal={selectedFood}
+        />
+      )}
     </SimpleGrid>
   );
 }
