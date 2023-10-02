@@ -1,6 +1,6 @@
 import { Box, Image, Text } from "@chakra-ui/react"
-import HeroFoot from "../components/HeroFoot"
-import HeroNav from "../components/HeroNav"
+import HeroNav from "../features/Homepage/HeroNav"
+import HeroFoot from "../features/Homepage/HeroFoot"
 
 export default function Homepage() {
   return (

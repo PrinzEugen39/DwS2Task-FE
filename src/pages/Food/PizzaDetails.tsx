@@ -11,39 +11,39 @@ import {
 
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 interface PizzaDetailsProps {
   isOpen: boolean;
   onClose: () => void;
-  foodmodal: object;
 }
 
 interface Food {
     name: string;
     badge: string;
     description: string;
-    // include other properties as needed
   }
 
-export default function PizzaDetails({ isOpen, onClose, foodmodal }: PizzaDetailsProps) {
+export default function PizzaDetails({ isOpen, onClose }: PizzaDetailsProps) {
   const [food, setFood] = useState< Food | undefined >();
   const { id } = useParams();
 
-  async function getPizza(id: number) {
-    try {
-      const res = await fetch(`http://localhost:9000/foods/${id}`);
-      const data = await res.json();
-      
-      setFood(data);
-    } catch (error) {
-      console.log(error);
-    }
+  function getFoodDetails(id: number) {
+    axios
+      .get(`http://localhost:9000/foods/${id}`)
+      .then((res) => {
+        setFood(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
+
   useEffect(() => {
     if (id !== undefined) {
       const idNumber = Number(id);
       if (!isNaN(idNumber)) {
-        getPizza(idNumber);
+        getFoodDetails(idNumber);
       }
     }
   }, [id]);

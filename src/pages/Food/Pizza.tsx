@@ -1,6 +1,5 @@
 import { QuestionOutlineIcon, EditIcon } from "@chakra-ui/icons";
 import {
-  useDisclosure,
   Box,
   Heading,
   Text,
@@ -17,15 +16,9 @@ import {
   SkeletonText,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useFoods } from "../../features/Food/useFoods";
 import PizzaDetails from "./PizzaDetails";
-
-interface Food {
-  id: number;
-  name: string;
-  imageUrl: string;
-  description: string;
-}
 
 // const foods: Food[] = [
 //   {
@@ -61,35 +54,21 @@ interface Food {
 // ];
 
 export default function Pizza() {
-  const [foods, setFoods] = useState<Food[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedFood, setSelectedFood] = useState<Food | null>(null);
-
-  const handleOpen = (food: Food) => {
-    setSelectedFood(food);
-    onOpen();
-  };
-
-  async function getFood() {
-    try {
-      setIsLoading(true);
-      const res = await fetch("http://localhost:9000/foods");
-      const data = await res.json();
-
-      setFoods(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setTimeout(() => setIsLoading(false), 500);
-    }
-  }
+  const {
+    getFood,
+    foods,
+    isLoading,
+    handleOpen,
+    selectedFood,
+    setSelectedFood,
+    isOpen,
+    onClose,
+  } = useFoods();
 
   useEffect(() => {
     getFood();
-  }, []);
+  }, [getFood]);
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
- 
   return (
     <SimpleGrid spacing={5} minChildWidth="290px">
       {foods.map((food) => {
@@ -143,7 +122,7 @@ export default function Pizza() {
                     variant="ghost"
                     leftIcon={<QuestionOutlineIcon />}
                     onClick={() => {
-                      handleOpen(food);
+                      handleOpen();
                     }}
                   >
                     Details
@@ -157,14 +136,13 @@ export default function Pizza() {
           </Card>
         );
       })}
-       {selectedFood && (
+      {selectedFood && (
         <PizzaDetails
           isOpen={isOpen}
           onClose={() => {
             onClose();
-            setSelectedFood(null);
+            setSelectedFood(false);
           }}
-          foodmodal={selectedFood}
         />
       )}
     </SimpleGrid>
